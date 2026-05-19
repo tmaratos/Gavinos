@@ -4,15 +4,19 @@ Modern, mobile-first rebuild of [gavinospizzeria.com](http://www.gavinospizzeria
 
 ## Quick start
 
-No `npm install` at the repo root is required if the Sentinel `app/` dependencies are already installed (scripts use `app/node_modules/vite`).
-
 ```bash
+npm install
 npm run dev
 ```
 
 Open the URL shown in the terminal (typically `http://localhost:5173`).
 
-If Vite is missing, run `npm install` inside `app/` first.
+On Windows, if `npm install` fails with an SSL error, try:
+
+```powershell
+$env:NODE_OPTIONS="--use-system-ca"
+npm install
+```
 
 ```bash
 npm run build   # output in dist/
