@@ -1,3 +1,5 @@
+import '../css/main.css';
+import '../css/employment.css';
 import { renderSiteChrome } from './layout.js';
 import formConfig from '../../data/employment/form-config.json';
 import restaurantInfo from '../../data/restaurant/restaurant-info.json';

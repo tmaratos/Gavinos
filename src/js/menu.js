@@ -1,3 +1,5 @@
+import '../css/main.css';
+import '../css/menu.css';
 import { renderSiteChrome } from './layout.js';
 import { assetUrl } from './base.js';
 import dinnerMenu from '../../data/menus/dinner-menu.json';

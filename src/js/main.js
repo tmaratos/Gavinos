@@ -1,4 +1,6 @@
+import '../css/main.css';
 import { renderSiteChrome } from './layout.js';
+import '../css/chalkboard.css';
 import { initHomepageChalkboard } from './announcements.js';
 import restaurantInfo from '../../data/restaurant/restaurant-info.json';
 import hoursData from '../../data/restaurant/restaurant-hours.json';

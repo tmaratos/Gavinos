@@ -382,7 +382,7 @@ p {
   position: absolute;
   inset: 0;
   background: var(--color-green-dark)
-    url("/assets/images/hero/hero-main.jpg") center / cover no-repeat;
+    url("../../assets/images/hero/hero-main.jpg") center / cover no-repeat;
 }
 
 .hero__media::after {
@@ -475,7 +475,7 @@ p {
 .feature-card__image {
   aspect-ratio: 16 / 10;
   background: var(--color-green-dark)
-    url("/assets/images/food/placeholder-pizza.svg") center / cover no-repeat;
+    url("../../assets/images/food/placeholder-pizza.svg") center / cover no-repeat;
 }
 
 .feature-card__body {

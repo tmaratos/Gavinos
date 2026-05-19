@@ -1,6 +1,7 @@
-import { cpSync, createReadStream, existsSync, statSync } from 'node:fs';
+import { cpSync, createReadStream, existsSync, statSync, writeFileSync } from 'node:fs';
 import { extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 
 const MIME = {
@@ -11,15 +12,23 @@ const MIME = {
   '.webp': 'image/webp',
   '.pdf': 'application/pdf',
   '.json': 'application/json',
-  '.css': 'text/css',
-  '.js': 'text/javascript',
 };
 
-function serveStatic(route, dirName) {
+const pages = {
+  main: resolve(rootDir, 'index.html'),
+  menu: resolve(rootDir, 'menu.html'),
+  about: resolve(rootDir, 'about.html'),
+  location: resolve(rootDir, 'location.html'),
+  contact: resolve(rootDir, 'contact.html'),
+  employment: resolve(rootDir, 'employment.html'),
+};
+
+function serveDir(route, dirName) {
   const base = resolve(rootDir, dirName);
 
   return {
     name: `serve-${dirName}`,
+    apply: 'serve',
     configureServer(server) {
       server.middlewares.use(route, (req, res, next) => {
         const raw = decodeURIComponent((req.url || '/').split('?')[0]);
@@ -38,43 +47,26 @@ function serveStatic(route, dirName) {
   };
 }
 
-function copyStaticDirs() {
+function copyStaticToDist() {
   return {
-    name: 'copy-static-dirs',
+    name: 'copy-static-to-dist',
     closeBundle() {
       const out = resolve(rootDir, 'dist');
       cpSync(resolve(rootDir, 'assets'), join(out, 'assets'), { recursive: true });
       cpSync(resolve(rootDir, 'data'), join(out, 'data'), { recursive: true });
+      writeFileSync(join(out, '.nojekyll'), '');
     },
   };
 }
 
-const pageInputs = {
-  main: resolve(rootDir, 'index.html'),
-  menu: resolve(rootDir, 'menu.html'),
-  about: resolve(rootDir, 'about.html'),
-  location: resolve(rootDir, 'location.html'),
-  contact: resolve(rootDir, 'contact.html'),
-  employment: resolve(rootDir, 'employment.html'),
-};
-
-if (existsSync(resolve(rootDir, 'admin/index.html'))) {
-  pageInputs.admin = resolve(rootDir, 'admin/index.html');
-}
-
-const isGitHubPages = process.env.GITHUB_PAGES === 'true';
-
 export default {
   root: rootDir,
-  base: isGitHubPages ? '/Gavinos/' : '/',
+  base: process.env.VITE_BASE || '/',
   publicDir: false,
-  plugins: [serveStatic('/assets', 'assets'), serveStatic('/data', 'data'), copyStaticDirs()],
+  plugins: [serveDir('/assets', 'assets'), serveDir('/data', 'data'), copyStaticToDist()],
   build: {
-    rollupOptions: {
-      input: pageInputs,
-    },
-  },
-  server: {
-    fs: { allow: [rootDir] },
+    outDir: 'dist',
+    emptyOutDir: true,
+    rollupOptions: { input: pages },
   },
 };
