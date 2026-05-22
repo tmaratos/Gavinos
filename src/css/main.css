@@ -631,15 +631,15 @@ p {
 }
 
 .feature-card__image--pizza {
-  background-image: url("../../assets/images/food/placeholder-pizza.svg");
+  background-image: url("../../assets/images/food/pizza.jpg");
 }
 
 .feature-card__image--pasta {
-  background-image: url("../../assets/images/food/placeholder-pasta.svg");
+  background-image: url("../../assets/images/food/spread.jpeg");
 }
 
 .feature-card__image--family {
-  background-image: url("../../assets/images/food/placeholder-hero.svg");
+  background-image: url("../../assets/images/interior/dining.jpg");
 }
 
 .feature-card__body {
