@@ -1,7 +1,8 @@
 import '../css/main.css';
-import { renderSiteChrome } from './layout.js';
 import '../css/chalkboard.css';
+import { renderSiteChrome } from './layout.js';
 import { initHomepageChalkboard } from './announcements.js';
+import { initHeroCarousel } from './hero.js';
 import restaurantInfo from '../../data/restaurant/restaurant-info.json';
 import hoursData from '../../data/restaurant/restaurant-hours.json';
 
@@ -45,12 +46,15 @@ function renderHours() {
   const note = document.getElementById('hours-note');
   if (note && hoursData.covidDisclaimer) {
     note.textContent = hoursData.covidDisclaimer;
+  } else if (note) {
+    note.hidden = true;
   }
 }
 
 function hydrateContact() {
   document.querySelectorAll('[data-phone]').forEach((el) => {
-    el.textContent = restaurantInfo.phone;
+    const isQuickBar = el.classList.contains('quick-bar__item');
+    el.textContent = isQuickBar ? `Call ${restaurantInfo.phone}` : restaurantInfo.phone;
     if (el.tagName === 'A') el.href = `tel:${restaurantInfo.phoneTel}`;
   });
 
@@ -61,6 +65,7 @@ function hydrateContact() {
 
 renderSiteChrome();
 initHomepageChalkboard();
+initHeroCarousel();
 renderHours();
 hydrateContact();
 initFadeIn();

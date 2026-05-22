@@ -1,7 +1,7 @@
 /* Interactive menu page */
 .menu-toolbar {
   position: sticky;
-  top: calc(var(--header-height) + var(--announcement-height));
+  top: var(--header-height);
   z-index: 50;
   background: rgba(250, 247, 242, 0.95);
   backdrop-filter: blur(8px);
@@ -116,7 +116,7 @@
 }
 
 .menu-section {
-  scroll-margin-top: 11rem;
+  scroll-margin-top: calc(var(--header-height) + 7rem);
   margin-bottom: var(--space-2xl);
 }
 
@@ -246,5 +246,16 @@
   .menu-category-nav {
     flex: 1;
     justify-content: flex-end;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

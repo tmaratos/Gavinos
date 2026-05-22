@@ -24,28 +24,41 @@
 
     <main class="section section--white">
       <div class="container">
-        <div class="info-grid" style="margin-bottom: 2rem">
-          <div class="info-block fade-in" style="background: var(--color-cream); color: var(--color-text)">
-            <h3 style="color: var(--color-green-dark)">Address</h3>
-            <p>
-              <a href="https://maps.google.com/maps?q=5211+Kingston+Pike+Knoxville%2C+TN+37919" data-address></a>
-            </p>
-            <p><a href="tel:+18652005571" data-phone></a></p>
+        <div class="visit-layout visit-layout--light">
+          <div class="info-grid visit-layout__info">
+            <div class="info-block info-block--light fade-in">
+              <h3>Address</h3>
+              <p>
+                <a href="https://maps.google.com/maps?q=5211+Kingston+Pike+Knoxville%2C+TN+37919" data-address></a>
+              </p>
+              <p><a href="tel:+18652005571" data-phone></a></p>
+              <p class="visit-layout__cta">
+                <a
+                  class="btn btn--primary"
+                  href="https://order.spoton.com/6369692730409da37ab0ee8a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Order Online</a
+                >
+              </p>
+            </div>
+            <div class="info-block info-block--light fade-in">
+              <h3>Hours</h3>
+              <ul class="hours-list" id="hours-list"></ul>
+              <p class="hours-note hours-note--alert" id="hours-note"></p>
+            </div>
           </div>
-          <div class="info-block fade-in" style="background: var(--color-cream); color: var(--color-text)">
-            <h3 style="color: var(--color-green-dark)">Hours</h3>
-            <ul class="hours-list" id="hours-list" style="color: var(--color-text)"></ul>
-            <p id="hours-note" style="font-size: 0.9rem; color: var(--color-red)"></p>
+          <div class="visit-layout__map fade-in">
+            <iframe
+              class="map-embed"
+              title="Gavino's Pizzeria map"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12921.487807113379!2d-83.990335!3d35.93787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6fbbaf840449daf6!2sGavino's+Pizzeria+%26+Italian+Restaurant!5e0!3m2!1sen!2sus!4v1456502538385"
+            ></iframe>
           </div>
         </div>
-        <iframe
-          class="map-embed fade-in"
-          title="Gavino's Pizzeria map"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12921.487807113379!2d-83.990335!3d35.93787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6fbbaf840449daf6!2sGavino's+Pizzeria+%26+Italian+Restaurant!5e0!3m2!1sen!2sus!4v1456502538385"
-        ></iframe>
       </div>
     </main>
 

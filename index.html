@@ -19,25 +19,60 @@
     <div id="site-header"></div>
 
     <main>
-      <section class="hero" aria-label="Welcome">
-        <div class="hero__media" role="img" aria-label="Fresh pizza from Gavino's"></div>
+      <section class="hero hero--carousel" aria-label="Welcome">
+        <div class="hero__slides" aria-hidden="true">
+          <div
+            class="hero__slide is-active"
+            style="background-image: url('assets/images/hero/hero-main.jpg')"
+          ></div>
+          <div class="hero__slide" style="background-image: url('assets/images/hero/slide-2.jpg')"></div>
+          <div class="hero__slide" style="background-image: url('assets/images/hero/slide-3.jpg')"></div>
+          <div class="hero__slide" style="background-image: url('assets/images/hero/slide-4.jpg')"></div>
+        </div>
+        <div class="hero__overlay"></div>
         <div class="hero__content container">
+          <p class="hero__eyebrow fade-in is-visible">Gavino's Pizzeria &amp; Restaurant</p>
           <h1 class="fade-in is-visible">Authentic New York Pizza in Knoxville</h1>
           <p class="hero__lead fade-in is-visible">
             From Ozone Park in the 60s and Long Island in the 70s to the best pizzerias of New York
-            City — Gavino's brings great pizza, pasta, and a family welcome to Bearden.
+            City — great pizza, pasta, and a family welcome in Bearden.
           </p>
           <div class="hero__actions fade-in is-visible">
             <a class="btn btn--primary" href="menu.html">View Menu</a>
             <a
-              class="btn btn--outline"
+              class="btn btn--outline btn--outline-light"
               href="https://order.spoton.com/6369692730409da37ab0ee8a"
               target="_blank"
               rel="noopener noreferrer"
-              style="color: #fff; border-color: #fff"
               >Order Online</a
             >
           </div>
+        </div>
+        <div class="hero__controls container">
+          <button type="button" class="hero__arrow hero__prev" aria-label="Previous slide">‹</button>
+          <div class="hero__dots" role="tablist" aria-label="Hero slides">
+            <button type="button" class="hero__dot is-active" aria-label="Slide 1" aria-selected="true"></button>
+            <button type="button" class="hero__dot" aria-label="Slide 2" aria-selected="false"></button>
+            <button type="button" class="hero__dot" aria-label="Slide 3" aria-selected="false"></button>
+            <button type="button" class="hero__dot" aria-label="Slide 4" aria-selected="false"></button>
+          </div>
+          <button type="button" class="hero__arrow hero__next" aria-label="Next slide">›</button>
+        </div>
+      </section>
+
+      <section class="quick-bar" aria-label="Quick info">
+        <div class="container quick-bar__inner">
+          <a class="quick-bar__item" href="tel:+18652005571" data-phone></a>
+          <span class="quick-bar__divider" aria-hidden="true"></span>
+          <a class="quick-bar__item" href="location.html">Hours &amp; location</a>
+          <span class="quick-bar__divider quick-bar__divider--hide-mobile" aria-hidden="true"></span>
+          <a
+            class="quick-bar__item quick-bar__item--order"
+            href="https://order.spoton.com/6369692730409da37ab0ee8a"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Order online</a
+          >
         </div>
       </section>
 
@@ -54,36 +89,27 @@
           </div>
           <div class="feature-grid feature-grid--three">
             <article class="feature-card fade-in">
-              <div
-                class="feature-card__image"
-                style="background-image: url('assets/images/food/placeholder-pizza.svg')"
-              ></div>
+              <div class="feature-card__image feature-card__image--pizza"></div>
               <div class="feature-card__body">
                 <h3>NY-Style Pizza</h3>
                 <p>Hand-tossed, stone-baked pies with sauce simmered slow and true.</p>
-                <a href="menu.html#signature-pizzas">Explore pizzas →</a>
+                <a class="feature-card__link" href="menu.html#signature-pizzas">Explore pizzas →</a>
               </div>
             </article>
             <article class="feature-card fade-in">
-              <div
-                class="feature-card__image"
-                style="background-image: url('assets/images/food/placeholder-pasta.svg')"
-              ></div>
+              <div class="feature-card__image feature-card__image--pasta"></div>
               <div class="feature-card__body">
                 <h3>Pasta &amp; Baked Classics</h3>
                 <p>Comforting baked ziti, parmigiana, and family recipes done right.</p>
-                <a href="menu.html#baked-pastas">See pasta →</a>
+                <a class="feature-card__link" href="menu.html#baked-pastas">See pasta →</a>
               </div>
             </article>
             <article class="feature-card fade-in">
-              <div
-                class="feature-card__image"
-                style="background-image: url('assets/images/food/placeholder-hero.svg')"
-              ></div>
+              <div class="feature-card__image feature-card__image--family"></div>
               <div class="feature-card__body">
                 <h3>A Family Restaurant</h3>
                 <p>Warm, welcoming, and rooted in New York Italian tradition.</p>
-                <a href="about.html">Our story →</a>
+                <a class="feature-card__link" href="about.html">Our story →</a>
               </div>
             </article>
           </div>
@@ -96,30 +122,41 @@
             <h2 id="visit-heading">Visit Us in Bearden</h2>
             <p>Dine in, pick up, or order online for your next Italian night.</p>
           </div>
-          <div class="info-grid">
-            <div class="info-block fade-in">
-              <h3>Location</h3>
-              <p>
-                <a href="https://maps.google.com/maps?q=5211+Kingston+Pike+Knoxville%2C+TN+37919" data-address></a>
-              </p>
-              <p><a href="tel:+18652005571" data-phone></a></p>
+          <div class="visit-layout">
+            <div class="info-grid visit-layout__info">
+              <div class="info-block fade-in">
+                <h3>Location</h3>
+                <p>
+                  <a href="https://maps.google.com/maps?q=5211+Kingston+Pike+Knoxville%2C+TN+37919" data-address></a>
+                </p>
+                <p><a href="tel:+18652005571" data-phone></a></p>
+                <p class="visit-layout__cta">
+                  <a
+                    class="btn btn--secondary"
+                    href="https://order.spoton.com/6369692730409da37ab0ee8a"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Order Online</a
+                  >
+                </p>
+              </div>
+              <div class="info-block fade-in">
+                <h3>Hours</h3>
+                <ul class="hours-list" id="hours-list"></ul>
+                <p class="hours-note" id="hours-note"></p>
+              </div>
             </div>
-            <div class="info-block fade-in">
-              <h3>Hours</h3>
-              <ul class="hours-list" id="hours-list"></ul>
-              <p id="hours-note" style="font-size: 0.9rem; opacity: 0.85; margin-top: 1rem"></p>
+            <div class="visit-layout__map fade-in">
+              <iframe
+                class="map-embed"
+                title="Gavino's Pizzeria map"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12921.487807113379!2d-83.990335!3d35.93787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6fbbaf840449daf6!2sGavino's+Pizzeria+%26+Italian+Restaurant!5e0!3m2!1sen!2sus!4v1456502538385"
+              ></iframe>
             </div>
           </div>
-          <p class="fade-in" style="text-align: center; margin-top: 2rem">
-            <iframe
-              class="map-embed"
-              title="Gavino's Pizzeria map"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12921.487807113379!2d-83.990335!3d35.93787!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6fbbaf840449daf6!2sGavino's+Pizzeria+%26+Italian+Restaurant!5e0!3m2!1sen!2sus!4v1456502538385"
-            ></iframe>
-          </p>
         </div>
       </section>
     </main>

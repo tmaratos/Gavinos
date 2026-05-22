@@ -57,8 +57,11 @@ function buildHeader(active) {
           </button>
         </div>
       </div>
-      <nav id="mobile-nav" class="mobile-nav container" aria-label="Mobile navigation" hidden>
-        <ul>${navLinks(active)}</ul>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+        <div class="mobile-nav__panel container">
+          <ul>${navLinks(active)}</ul>
+          <a class="btn btn--primary mobile-nav__order" href="${restaurantInfo.orderOnlineUrl}" target="_blank" rel="noopener noreferrer">Order Online</a>
+        </div>
       </nav>
     </header>
   `;
@@ -143,11 +146,26 @@ function bindMobileNav() {
   const mobileNav = document.getElementById('mobile-nav');
   if (!toggle || !mobileNav) return;
 
+  const setOpen = (open) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileNav.hidden = !open;
+    mobileNav.classList.toggle('is-open', open);
+    document.body.classList.toggle('nav-open', open);
+  };
+
   toggle.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!open));
-    toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
-    mobileNav.hidden = open;
-    mobileNav.classList.toggle('is-open', !open);
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  mobileNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && mobileNav.classList.contains('is-open')) {
+      setOpen(false);
+      toggle.focus();
+    }
   });
 }
