@@ -1,7 +1,7 @@
 .employment-layout {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-md);
   width: 100%;
   max-width: 44rem;
   margin-inline: auto;
@@ -12,11 +12,17 @@
 }
 
 .employment-intro {
-  background: var(--color-white);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  padding: var(--space-lg);
+  padding: var(--space-md);
   box-shadow: var(--shadow-soft);
   text-align: center;
+}
+
+.employment-intro h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
 }
 
 .employment-intro .employment-progress {

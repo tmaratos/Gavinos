@@ -19,9 +19,9 @@
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
   --space-md: 1.25rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 4.5rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.25rem;
+  --space-2xl: 3rem;
 
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -578,7 +578,13 @@ p {
 
 /* Sections */
 .section {
-  padding: var(--space-xl) 0;
+  padding: var(--space-lg) 0 var(--space-xl);
+}
+
+/* Inner pages: keep hero and content visually connected */
+.page-hero + main.section,
+.page-hero + .section {
+  padding-top: var(--space-md);
 }
 
 .section--white {
@@ -598,7 +604,7 @@ p {
 .section__header {
   text-align: center;
   max-width: 40rem;
-  margin: 0 auto var(--space-lg);
+  margin: 0 auto var(--space-md);
 }
 
 .section__header p {
@@ -789,7 +795,7 @@ p {
 .site-footer {
   background: var(--color-green-dark);
   color: var(--color-white);
-  padding: var(--space-xl) 0 var(--space-lg);
+  padding: var(--space-lg) 0 var(--space-md);
 }
 
 .site-footer a {
@@ -883,7 +889,7 @@ p {
     var(--color-green)
   );
   color: var(--color-white);
-  padding: var(--space-xl) 0 var(--space-lg);
+  padding: var(--space-lg) 0 var(--space-md);
   text-align: center;
 }
 
@@ -966,7 +972,12 @@ p {
   }
 
   .page-hero {
-    padding: var(--space-2xl) 0 var(--space-xl);
+    padding: var(--space-xl) 0 var(--space-md);
+  }
+
+  .page-hero + main.section,
+  .page-hero + .section {
+    padding-top: var(--space-lg);
   }
 }
 
@@ -994,7 +1005,12 @@ p {
   }
 
   .section {
-    padding: var(--space-2xl) 0;
+    padding-block: var(--space-xl);
+  }
+
+  .page-hero + main.section,
+  .page-hero + .section {
+    padding-top: var(--space-lg);
   }
 }
 
